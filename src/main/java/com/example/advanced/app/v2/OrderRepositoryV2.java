@@ -1,4 +1,4 @@
-package com.example.advanced.app.v1;
+package com.example.advanced.app.v2;
 
 import com.example.advanced.trace.TraceStatus;
 import com.example.advanced.trace.hellotrace.HelloTraceV1;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @RequiredArgsConstructor
-public class OrderRepositoryV1 {
+public class OrderRepositoryV2 {
 
     private final HelloTraceV1 trace;
 
