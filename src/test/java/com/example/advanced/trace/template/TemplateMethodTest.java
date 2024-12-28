@@ -45,4 +45,34 @@ public class TemplateMethodTest {
         AbstractTemplate template2 = new SubClassLogic2();
         template2.execute();
     }
+
+    /**
+     * 템플릿 메소드 패턴 적용(익명클래스)
+     */
+    @Test
+    void templateMethodV2(){
+        AbstractTemplate template1 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직1 실행");
+            }
+        };
+
+        /**
+         * com.example.advanced.trace.template.TemplateMethodTest$1
+         * -> {@TemplateMethodTest} 안에 있는 내부 클래스이고 클래스명이 없으니 임의로 $를 붙여서 네이밍한다.
+         */
+
+        log.info("클래스 이름1={}", template1.getClass());
+        template1.execute();
+
+        AbstractTemplate template2 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직2 실행");
+            }
+        };
+        log.info("클래스 이름2={}", template2.getClass());
+        template2.execute();
+    }
 }
