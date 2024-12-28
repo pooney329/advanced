@@ -25,11 +25,11 @@ public class TraceId {
     }
 
 
-    private TraceId createNextId() {
+    public TraceId createNextId() {
         return new TraceId(this.id, this.level + 1);
     }
 
-    private TraceId createPreviousId() {
+    public TraceId createPreviousId() {
         return new TraceId(this.id, this.level - 1);
     }
 
