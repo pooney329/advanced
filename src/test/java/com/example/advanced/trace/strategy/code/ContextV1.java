@@ -3,6 +3,7 @@ package com.example.advanced.trace.strategy.code;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * == 전략 패턴 ==
  * 필드에 전략을 보관하는 방식
  *  -> 변하지 않는 로직을 가지고 있는 템플릿 역할을 하는 코드 문맥은 크게 변하지 않지만 일부 전략이 변경된다.
  *  -> spring 의존 주입과 비슷하다.
