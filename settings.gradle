@@ -1,1 +1,3 @@
 rootProject.name = 'advanced'
+include('advance')
+include('proxy')
