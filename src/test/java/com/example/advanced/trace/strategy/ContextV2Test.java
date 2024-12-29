@@ -1,7 +1,10 @@
 
 package com.example.advanced.trace.strategy;
 
-import com.example.advanced.trace.strategy.code.*;
+import com.example.advanced.trace.strategy.code.strategy.ContextV2;
+import com.example.advanced.trace.strategy.code.strategy.Strategy;
+import com.example.advanced.trace.strategy.code.strategy.StrategyLogic1;
+import com.example.advanced.trace.strategy.code.strategy.StrategyLogic2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 

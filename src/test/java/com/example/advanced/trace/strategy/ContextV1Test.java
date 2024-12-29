@@ -1,16 +1,11 @@
 package com.example.advanced.trace.strategy;
 
-import com.example.advanced.trace.strategy.code.ContextV1;
-import com.example.advanced.trace.strategy.code.Strategy;
-import com.example.advanced.trace.strategy.code.StrategyLogic1;
-import com.example.advanced.trace.strategy.code.StrategyLogic2;
-import com.example.advanced.trace.template.code.AbstractTemplate;
-import com.example.advanced.trace.template.code.SubClassLogic1;
-import com.example.advanced.trace.template.code.SubClassLogic2;
+import com.example.advanced.trace.strategy.code.strategy.ContextV1;
+import com.example.advanced.trace.strategy.code.strategy.Strategy;
+import com.example.advanced.trace.strategy.code.strategy.StrategyLogic1;
+import com.example.advanced.trace.strategy.code.strategy.StrategyLogic2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-
-import javax.naming.Context;
 
 @Slf4j
 public class ContextV1Test {

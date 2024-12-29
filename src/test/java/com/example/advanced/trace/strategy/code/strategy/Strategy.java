@@ -1,4 +1,4 @@
-package com.example.advanced.trace.strategy.code;
+package com.example.advanced.trace.strategy.code.strategy;
 
 /**
  *  전략 패턴 으로 변하는 알고리즘은 Strategy 인터페이스를 구현하면 된다.
