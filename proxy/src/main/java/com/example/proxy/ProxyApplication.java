@@ -5,9 +5,12 @@ import com.example.proxy.config.AppV2Config;
 import com.example.proxy.config.v1_proxy.InterfaceProxyConfig;
 import com.example.proxy.trace.logtrace.LogTrace;
 import com.example.proxy.trace.logtrace.ThreadLocalLogTrace;
+import com.example.proxy.config.AppV1Config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
+
 import org.springframework.context.annotation.Import;
 
 
