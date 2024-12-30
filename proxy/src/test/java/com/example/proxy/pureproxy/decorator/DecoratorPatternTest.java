@@ -1,9 +1,6 @@
 package com.example.proxy.pureproxy.decorator;
 
-import com.example.proxy.pureproxy.decorator.code.Component;
-import com.example.proxy.pureproxy.decorator.code.DecoratorPatternClient;
-import com.example.proxy.pureproxy.decorator.code.MessageDecorator;
-import com.example.proxy.pureproxy.decorator.code.RealComponent;
+import com.example.proxy.pureproxy.decorator.code.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -16,11 +13,26 @@ public class DecoratorPatternTest {
         client.execute();
     }
 
+    /**
+     * 응답값을 꾸며주는 데이터코레이터 패턴
+     */
     @Test
     void decorator1(){
         Component realComponent = new RealComponent();
         Component messageDecorator = new MessageDecorator(realComponent);
         DecoratorPatternClient client = new DecoratorPatternClient(messageDecorator);
+        client.execute();
+    }
+
+    /**
+     * client -> timeDecorator -> messageDecorator -> realComponent
+     */
+    @Test
+    void decorator2(){
+        Component realComponent = new RealComponent();
+        Component messageDecorator = new MessageDecorator(realComponent);
+        Component timeDecorator = new TimeDecorator(messageDecorator);
+        DecoratorPatternClient client = new DecoratorPatternClient(timeDecorator);
         client.execute();
     }
 
