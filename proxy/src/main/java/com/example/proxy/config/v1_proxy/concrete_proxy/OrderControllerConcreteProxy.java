@@ -35,17 +35,17 @@ public class OrderControllerConcreteProxy extends OrderControllerV2 {
     @Override
     public String request(String itemId) {
         TraceStatus status = null;
-        String result;
         try {
             status = logTrace.begin("OrderController.request()");
             //target 호출
-            result = target.request(itemId);
+            String result = target.request(itemId);
             logTrace.end(status);
+            return result;
         } catch (Exception e) {
             logTrace.exception(status, e);
             throw e;
         }
-        return result;
+
     }
 
     @Override
