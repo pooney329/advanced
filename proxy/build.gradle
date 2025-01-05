@@ -29,7 +29,22 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    //테스트에서 Lombok 사용
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
 }
+
+
+jar {
+    enabled = false
+}
+
+bootJar {
+    archivesBaseName = "proxy_api"
+    archiveFileName = "proxy_api.jar"
+    enabled = true
+}
+
 
 tasks.named('test') {
     useJUnitPlatform()
