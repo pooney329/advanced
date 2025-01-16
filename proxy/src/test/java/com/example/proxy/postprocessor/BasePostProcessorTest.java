@@ -29,8 +29,6 @@ public class BasePostProcessorTest {
 
         Assertions.assertThrows(NoSuchBeanDefinitionException.class, () -> applicationContext.getBean(A.class));
 
-
-
     }
 
 
@@ -41,7 +39,6 @@ public class BasePostProcessorTest {
         public A a(){
             return new A();
         }
-
         @Bean
         public AtoBPostProcessor helloPostProcessor(){
             return new AtoBPostProcessor();
@@ -54,8 +51,6 @@ public class BasePostProcessorTest {
         public void helloA(){
             log.info("hello A");
         }
-
-
     }
 
     @Slf4j
