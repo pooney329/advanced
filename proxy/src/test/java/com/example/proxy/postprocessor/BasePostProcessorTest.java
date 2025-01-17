@@ -66,6 +66,7 @@ public class BasePostProcessorTest {
      *   - 빈 후처리기는 빈을 조작하고 변경 할 수 있는 후킹 포인트이다.
      *   - 빈 객체를 조작하거나 심지어 다른 객체로 바꾸어 버릴 수 있을 정도록 막강하다.
      *   - 특히 컴포넌트 스캔의 대상이 되는 빈들은 중간에 조작할 방법이 없었는데, 빈 후처리기를사용하면 개발자가 등록한 보든 빈을 중간에 조작할 수 있다.(빈 객체를 프록시로 교체 가능)
+     *
      */
     @Slf4j
     static class AtoBPostProcessor implements org.springframework.beans.factory.config.BeanPostProcessor {
