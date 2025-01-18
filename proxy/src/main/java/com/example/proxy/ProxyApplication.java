@@ -9,6 +9,7 @@ import com.example.proxy.config.v2_dynamicproxy.DynamicProxyFilterConfig;
 import com.example.proxy.config.v3_proxyfactory.ProxyFactoryConfigV1;
 import com.example.proxy.config.v3_proxyfactory.ProxyFactoryConfigV2;
 import com.example.proxy.config.v4_postprocessor.BeanPostProcessorConfig;
+import com.example.proxy.config.v5_autoproxy.AutoProxyConfig;
 import com.example.proxy.trace.logtrace.LogTrace;
 import com.example.proxy.trace.logtrace.ThreadLocalLogTrace;
 import com.example.proxy.config.AppV1Config;
@@ -33,7 +34,8 @@ import org.springframework.context.annotation.Import;
 //@Import(DynamicProxyFilterConfig.class)
 //@Import(ProxyFactoryConfigV1.class)
 //@Import(ProxyFactoryConfigV2.class)
-@Import(BeanPostProcessorConfig.class)
+//@Import(BeanPostProcessorConfig.class)
+@Import(AutoProxyConfig.class)
 @SpringBootApplication(scanBasePackages = "com.example.proxy.app.v3")
 public class ProxyApplication {
 
@@ -43,7 +45,7 @@ public class ProxyApplication {
 
 
     @Bean
-    public LogTrace logTrace(){
+    public LogTrace logTrace() {
         return new ThreadLocalLogTrace();
     }
 

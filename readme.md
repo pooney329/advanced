@@ -10,3 +10,7 @@
 
 ## Advisor를 통한 프록시 패턴 
 ![img_1.png](img_1.png)
+
+
+## AutoProxyCreator
+![img_2.png](img_2.png)
