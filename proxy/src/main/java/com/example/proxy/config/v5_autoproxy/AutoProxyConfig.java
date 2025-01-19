@@ -6,7 +6,9 @@ import com.example.proxy.config.v3_proxyfactory.advice.LogTraceAdvice;
 import com.example.proxy.config.v4_postprocessor.postprocessor.PackageLogTracePostProcessor;
 import com.example.proxy.trace.logtrace.LogTrace;
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;
+import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 import org.springframework.aop.support.NameMatchMethodPointcut;
 import org.springframework.context.annotation.Bean;
@@ -30,8 +32,9 @@ public class AutoProxyConfig {
      *              1. request()를 호출 할 경우 포인트컷 조건에 만족함으로 프록시는 어드바이스를 먼저 호출 하고 target을 호출
      *              2. noLog()를 호출 할 경우 포인트 컷 조건에 만족하지 않음으로 어드바이스를 호출 하지 않고 target만 호출
      *
+     *
      */
-    @Bean
+//    @Bean
     public Advisor getAdvisor1(LogTrace logTrace) {
         //pointcut
         NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
@@ -41,6 +44,39 @@ public class AutoProxyConfig {
         LogTraceAdvice advice = new LogTraceAdvice(logTrace);
         return new DefaultPointcutAdvisor(pointcut, advice);
     }
+
+
+    /**
+     *  pointcut.setMappedNames("request*", "order*", "save*"); 이런식으로 처리 했을 경우
+     *  spring에서 자동 등록하는 bean 중에 메소드가 request로 시작하는 것들도 모두 찍어버리는 문제가 발생한다.
+     *  이것을 해결 하기 위해 정밀하게 pointCut을 설정 할 수 있도록 {@link AspectJExpressionPointcut} 를 사용한다.
+     * @param logTrace
+     * @return
+     */
+//    @Bean
+    public Advisor getAdvisor2(LogTrace logTrace) {
+        //pointcut
+        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+        pointcut.setExpression("execution(* com.example.proxy.app..*(..))");
+        //advice
+        LogTraceAdvice advice = new LogTraceAdvice(logTrace);
+        return new DefaultPointcutAdvisor(pointcut, advice);
+    }
+
+    /**
+     *  getAdvisor2()는 no-log도 출력하기 때문에 no-log는 제외하기 위한 설정 추가
+     * @param logTrace
+     * @return
+     */
+    public Advisor getAdvisor3(LogTrace logTrace) {
+        //pointcut
+        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+        pointcut.setExpression("execution(* com.example.proxy.app..*(..)) && !execution(* com.example.proxy.app..noLog(..))");
+        //advice
+        LogTraceAdvice advice = new LogTraceAdvice(logTrace);
+        return new DefaultPointcutAdvisor(pointcut, advice);
+    }
+
 
 
 }
