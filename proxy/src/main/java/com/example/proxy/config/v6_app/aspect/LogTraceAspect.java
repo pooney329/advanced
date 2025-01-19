@@ -9,6 +9,10 @@ import org.aspectj.lang.annotation.Aspect;
 
 import java.lang.reflect.Method;
 
+
+/**
+ * spring이 @Aspect을 보고 이후  @Around와 스코프안에 내용을 보고 Advisor를 만든다!
+ */
 @Slf4j
 @Aspect
 public class LogTraceAspect {
@@ -19,7 +23,11 @@ public class LogTraceAspect {
         this.logTrace = logTrace;
     }
 
-
+    /**
+     * {@link @Around}는 포인트 컷 , 스코프안에 내용은 Advice 라고 생각 하면 된다.
+     * 이걸 가지고 결국 Advisor를 만든다.
+     *
+     */
     @Around("execution(* com.example.proxy.app..*(..))")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
         TraceStatus status = null;
