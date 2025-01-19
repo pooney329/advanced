@@ -15,6 +15,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+
+/**
+ * 프록시 자동 생성기는 프록시를 하나만 생성하고 Advisor를 여러개를 갖는다.
+ * [case 정리]
+ *      case 1)  qdvisor1의 포인트컷만 만족하는 경우
+ *           ->  프록시 1개를 생성하고 해당 프록시에 advisor1만 넣는다.
+ *      case 2)  qdvisor1,2의 포인트컷 모두 만족하는 경우
+ *           ->  프록시 1개를 생성하고 해당 프록시에 advisor1,2 모두 넣는다.
+ *      case 3)  qdvisor1,2의 포인트컷 모두 만족 하지 않는 경우
+ *          ->  프록시 생성 하지 않는다.
+ */
 @Slf4j
 @Configuration
 @Import({AppV1Config.class, AppV2Config.class})
