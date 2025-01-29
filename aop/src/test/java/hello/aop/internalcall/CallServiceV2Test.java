@@ -9,19 +9,19 @@ import org.springframework.context.annotation.Import;
 
 
 /**
- * 자기 자신 주입 방식 사용
+ * 지연 주입 방식 사용
  */
 @Slf4j
 @Import(CallLogAspect.class)
 @SpringBootTest
-class CallServiceV1Test {
+class CallServiceV2Test {
 
     @Autowired
-    CallServiceV1 callServiceV1;
+    CallServiceV2 callServiceV2;
 
     @Test
     void external() {
-        callServiceV1.external();
+        callServiceV2.external();
     }
 
 }
