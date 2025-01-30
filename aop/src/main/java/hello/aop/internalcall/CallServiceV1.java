@@ -19,7 +19,6 @@ public class CallServiceV1 {
      * [주의]
      *  - 스프링 2.6 부터는 기본적으로 순환참조를 금지시키고 있기 때문에 추가 설정 필요
      *      - applicatio.propertites 파일에 "spring.main.allow-circular-references=true" 추가
-     *
      */
     @Autowired
     public void setCallServiceV1(CallServiceV1 callServiceV1) {
