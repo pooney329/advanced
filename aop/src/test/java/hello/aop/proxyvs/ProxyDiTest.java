@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Import;
 @SpringBootTest(properties = {"spring.aop.proxy-target-class=true"}) // cjlib 동적 프록시
 public class ProxyDiTest {
 
-
     @Autowired
     MemberService memberService;
 
